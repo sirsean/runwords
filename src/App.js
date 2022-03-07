@@ -337,7 +337,7 @@ function CorrectGuesses() {
                 });
             })}
         {!gameOver && correctGuesses.map((word, i) => {
-            return <code key={i}>{i+1}&gt;&nbsp;{((numCorrect >= 10) && ((i+1) < 10)) && <span>&nbsp;</span>}{word}</code>
+            return <code key={i}>{i+1}&gt;&nbsp;{((numCorrect >= 10) && ((i+1) < 10)) && <span>&nbsp;</span>}<span className="hit">{word}</span>[{allGuesses[i].length}]</code>
         })}
         {(gameOver && (numCorrect < 10)) && <code className="incorrect">{numCorrect+1}&gt; {sequence[numCorrect]}</code>}
         </div>
