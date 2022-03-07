@@ -369,6 +369,8 @@ function HistoryRow({ gameIndex, game }) {
     return (
         <div className="historyRow" onClick={onClick}>
             <code>{gameIndex}</code>
+        {(!game || !(game.gameWon || game.gameLost)) &&
+            <code className="unplayed">click here to play</code>}
         {game && (game.gameWon || game.gameLost) &&
                 <code>{range(game.numCorrect).map(n => {
                     return <span key={n}>.</span>

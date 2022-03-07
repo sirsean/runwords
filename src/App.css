@@ -110,6 +110,11 @@
     padding: 3px;
 }
 
+.historyRow > code.unplayed {
+    font-style: italic;
+    color: grey;
+}
+
 .CorrectGuesses {
     text-align: left;
     display: flex;
