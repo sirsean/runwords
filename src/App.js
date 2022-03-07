@@ -330,8 +330,7 @@ function CorrectGuesses() {
                         {last && <span>{i+1}&gt;&nbsp;{(numCorrect === 10) && (i < 9) && <span>&nbsp;</span>}</span>}
                         {!last && <span>&nbsp;&nbsp;&nbsp;{(numCorrect === 10) && <span>&nbsp;</span>}</span>}
                         {word.split('').map((c, k) => {
-                            let cssClass = last ? '' : classes[k];
-                            return <span key={[i,j,k]} className={cssClass}>{c}</span>
+                            return <span key={[i,j,k]} className={classes[k]}>{c}</span>
                         })}
                         </code>
                     );
