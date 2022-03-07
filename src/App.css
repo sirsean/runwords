@@ -2,37 +2,140 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.grid {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.row, .block {
+    display: flex;
+    justify-content: center;
+    margin: 3px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.block {
+    font-size: 40px;
+    width: 56px;
+    height: 51px;
+    border: 1px solid;
+    border-radius: 6px;
+    padding-top: 8px;
+    transition: color 0.2s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.block.hit {
+    background-color: #1AFE49;
+    color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.block.partial {
+    color: #FBF665;
+}
+
+.block.miss {
+    color: #575267;
+}
+
+.block.wrong {
+    color: #de004e;
+}
+
+.keyboard {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.keyboardRow {
+    display: flex;
+    justify-content: center;
+}
+
+.keyboardKey {
+    font-size: 30px;
+    padding: 5px 0;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid;
+    border-radius: 6px;
+    width: 50px;
+    transition: color 0.2s ease-in-out;
+}
+
+.keyboardRow.controlRow {
+    margin-top: 18px;
+}
+
+.keyboardKey.controlKey {
+    width: 100px;
+}
+
+.keyboardKey.hit {
+    background-color: #1AFE49;
+    color: black;
+}
+
+.keyboardKey.partial {
+    color: #FBF665;
+}
+
+.keyboardKey.miss {
+    color: #575267;
+}
+
+.gameResult {
+    margin-top: 8px;
+}
+
+.history {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin: 16px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.historyRow {
+    display: flex;
+    font-size: 30px;
+}
+
+.historyRow > code {
+    padding: 3px;
+}
+
+.CorrectGuesses {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.CorrectGuesses code {
+    font-size: 40px;
+    filter: brightness(1.25);
+}
+
+.CorrectGuesses code.incorrect {
+    color: grey;
+}
+
+.CorrectGuesses code .hit {
+    color: #1AFE49;
+}
+
+.CorrectGuesses code .partial {
+    color: #FBF665;
+}
+
+.CorrectGuesses code .miss {
+    color: #575267;
 }
