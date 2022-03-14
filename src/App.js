@@ -89,7 +89,7 @@ const gameSlice = createSlice({
                         if (state.numCorrect === state.sequence.length) {
                             state.gameWon = true;
                         } else {
-                            state.guessesRemaining = state.guessesRemaining - state.guesses[state.numCorrect-1].length + ((state.numCorrect % 2 === 0) ? 2 : 3);
+                            state.guessesRemaining = state.guessesRemaining - state.guesses[state.numCorrect-1].length + 3;
                             state.guesses.push([state.currentGuess]);
                             state.targetWord = state.sequence[state.numCorrect];
                             state.hits = [];
