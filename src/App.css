@@ -120,13 +120,42 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 200px;
+    max-width: 300px;
     margin: 0 auto;
 }
 
 .CorrectGuesses code {
     font-size: 40px;
     filter: brightness(1.25);
+}
+
+.CorrectGuesses .dot {
+    background-color: #FF6700;
+    display: inline-block;
+    border-radius: 30%;
+    margin: 2px;
+    width: 25px;
+    height: 38px;
+}
+
+.CorrectGuesses .lastGuess div {
+    display: inline-block;
+    border-radius: 30%;
+    margin: 2px;
+    width: 25px;
+    height: 38px;
+}
+
+.CorrectGuesses .lastGuess .hit {
+    background-color: #1AFE49;
+}
+
+.CorrectGuesses .lastGuess .partial {
+    background-color: #FBF665;
+}
+
+.CorrectGuesses .lastGuess .miss {
+    background-color: #575267;
 }
 
 .CorrectGuesses code.incorrect {

@@ -321,6 +321,30 @@ function CorrectGuesses() {
     return (
         <div className="CorrectGuesses">
         {gameOver &&
+            correctGuesses.map((word, i) => {
+                return (
+                    <code key={i}>
+                        {i+1}&gt;{(i+1 < 10) && <span>&nbsp;</span>}
+                        {range(allGuesses[i].length).map((n, j) => {
+                            return (
+                                <div key={[i,j]} className="dot">&nbsp;</div>
+                            );
+                        })}
+                    </code>
+                );
+            })}
+        {gameOver && (correctGuesses.length < 10) &&
+                <code className="lastGuess incorrect">
+                {correctGuesses.length+1}&gt;{(correctGuesses.length !== 9) && <span>&nbsp;</span>}
+            {allGuesses[correctGuesses.length].slice().reverse()[0].split('').map((c, k) => {
+                const classes = calculateCharacterHitPartialMiss(sequence[correctGuesses.length], allGuesses[correctGuesses.length].slice().reverse()[0]);
+                return <div key={k} className={classes[k]}>&nbsp;</div>
+            })}
+                </code>
+        }
+
+        {/* hidden because we're not currently flipping between share-able and not */}
+        {false && gameOver &&
             allGuesses.map((guesses, i) => {
                 return guesses.map((word, j) => {
                     const classes = calculateCharacterHitPartialMiss(sequence[i], word);
@@ -336,10 +360,13 @@ function CorrectGuesses() {
                     );
                 });
             })}
+
         {!gameOver && correctGuesses.map((word, i) => {
             return <code key={i}>{i+1}&gt;&nbsp;{((numCorrect >= 10) && ((i+1) < 10)) && <span>&nbsp;</span>}<span className="hit">{word}</span>[{allGuesses[i].length}]</code>
         })}
-        {(gameOver && (numCorrect < 10)) && <code className="incorrect">{numCorrect+1}&gt; {sequence[numCorrect]}</code>}
+
+        {/* hidden because we're not currently flipping between share-able and not */}
+        {false && (gameOver && (numCorrect < 10)) && <code className="incorrect">{numCorrect+1}&gt; {sequence[numCorrect]}</code>}
         </div>
     );
 }
